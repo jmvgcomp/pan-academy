@@ -2,6 +2,12 @@ package dev.jmvg.aula8.repository;
 
 import dev.jmvg.aula8.model.ClienteModel;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface ClienteRepository extends JpaRepository<ClienteModel, Long> {
+    @Query(value = "SELECT u FROM ClienteModel u WHERE u.tipo = :tipo")
+    List<ClienteModel> procuraTipoPessoas(Integer tipo);
+
 }

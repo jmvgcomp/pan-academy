@@ -28,4 +28,9 @@ public class ClienteController {
     ResponseEntity<ClienteModel> save(@RequestBody ClienteModel clientinho) {
         return ResponseEntity.status(HttpStatus.CREATED).body(clienteRepository.save(clientinho));
     }
+
+    @GetMapping("/listar/{tipo}")
+    public ResponseEntity<List<ClienteModel>> filtroPorId(@PathVariable Integer tipo) {
+        return ResponseEntity.ok(clienteRepository.procuraTipoPessoas(tipo));
+    }
 }

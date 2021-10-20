@@ -3,7 +3,6 @@ package dev.jmvg.aula8.controller;
 
 import dev.jmvg.aula8.model.TarefasModel;
 import dev.jmvg.aula8.repository.TarefasRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +14,16 @@ import java.util.List;
 @RequestMapping("/api/tarefas")
 public class TarefasController {
 	
-	Calendar c1 = Calendar.getInstance();
-	int hora = c1.get(Calendar.HOUR_OF_DAY);
+	Calendar calendar = Calendar.getInstance();
+
+	int hora = calendar.get(Calendar.HOUR_OF_DAY);
 
 	private final TarefasRepository tarefasRepository;
 
 	public TarefasController(TarefasRepository tarefasRepository) {
 		this.tarefasRepository = tarefasRepository;
 	}
+
 
 	@GetMapping("/listar")
 	public List<TarefasModel> findAll() {
@@ -56,4 +57,21 @@ public class TarefasController {
 	public ResponseEntity<List<TarefasModel>> getByTarefa(@PathVariable String tarefa) {
 		return ResponseEntity.ok(tarefasRepository.findAllByTarefaContainingIgnoreCase(tarefa));
 	}
+
+	@GetMapping("/listar/tarefas/{tarefa}/{id}")
+	public ResponseEntity<List<TarefasModel>> getByTarefaAndId(@PathVariable String tarefa, @PathVariable Long id){
+		return ResponseEntity.ok(tarefasRepository.findByTarefaAndId(tarefa, id));
+	}
+
+	@GetMapping("/listar/tarefasorid/{tarefa}/{id}")
+	public ResponseEntity<List<TarefasModel>> getByTarefaOrId(@PathVariable String tarefa, @PathVariable Long id){
+		return ResponseEntity.ok(tarefasRepository.findByTarefaOrId(tarefa, id));
+	}
+
+	@GetMapping("/listar/tarefasparams")
+	public ResponseEntity<List<TarefasModel>> getByTarefaOrIdUsingQueryParam(@RequestParam String tarefa,
+																			 @RequestParam Long id){
+		return ResponseEntity.ok(tarefasRepository.findByTarefaOrId(tarefa, id));
+	}
+
 }

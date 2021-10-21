@@ -43,10 +43,11 @@ public class TarefasController {
 
 	@PostMapping("/salvar")
 	public ResponseEntity<TarefasModel> save(@RequestBody TarefasModel tarefinha) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(tarefasRepository.save(tarefinha));
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(tarefasRepository.save(tarefinha));
 	}
 
-	@GetMapping("/listar/tarefas/{id}")
+	@GetMapping("/listar/{id}")
 	public ResponseEntity<TarefasModel> getById(@PathVariable Long id) {
 		return tarefasRepository.findById(id)
 				.map(ResponseEntity::ok)
@@ -59,17 +60,19 @@ public class TarefasController {
 	}
 
 	@GetMapping("/listar/tarefas/{tarefa}/{id}")
-	public ResponseEntity<List<TarefasModel>> getByTarefaAndId(@PathVariable String tarefa, @PathVariable Long id){
+	public ResponseEntity<List<TarefasModel>> getByTarefaAndId(@PathVariable String tarefa,
+															   @PathVariable Long id){
 		return ResponseEntity.ok(tarefasRepository.findByTarefaAndId(tarefa, id));
 	}
 
-	@GetMapping("/listar/tarefasorid/{tarefa}/{id}")
-	public ResponseEntity<List<TarefasModel>> getByTarefaOrId(@PathVariable String tarefa, @PathVariable Long id){
+	@GetMapping("/listar/tarefas/{tarefa}/{id}")
+	public ResponseEntity<List<TarefasModel>> getByTarefaOrId(@PathVariable String tarefa,
+															  @PathVariable Long id){
 		return ResponseEntity.ok(tarefasRepository.findByTarefaOrId(tarefa, id));
 	}
 
 	@GetMapping("/listar/tarefasparams")
-	public ResponseEntity<List<TarefasModel>> getByTarefaOrIdUsingQueryParam(@RequestParam String tarefa,
+	public ResponseEntity<List<TarefasModel>> getTarefaByParams(@RequestParam String tarefa,
 																			 @RequestParam Long id){
 		return ResponseEntity.ok(tarefasRepository.findByTarefaOrId(tarefa, id));
 	}

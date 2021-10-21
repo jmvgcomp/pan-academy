@@ -3,7 +3,11 @@
 Uma mão na roda para quem quer se especializar e desenvolver seu conhecimento. Neste repositório reuno projetos e conhecimentos adquiridos pertinentes a formação.
 
 - [Modulo Java](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java) ☕ 
-  - [Até o dia 18/10 | Evolução Projeto CRUD Tarefa/Cliente](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula8)
+  - [Até o dia 19/10 | Evolução Projeto CRUD Tarefa/Cliente](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula8)  
+    - Escrevi um resumo para iniciantes do que foi usado projeto dividido em três partes, com exemplos, diagrama e fluxo da aplicação.  
+      [Parte 1 - API REST, Verbos HTTP, JSON, Visão geral do POM.XML e dependências do projeto](https://medium.com/@jmvgdev/entendendo-um-projeto-spring-rest-api-inciantes-parte-1-b205d1a6c2d4)  
+      [Parte 2 - Classe Principal, @SpringBootApplication, @Id, @GeneratedValue, @JsonFormat, Repository, @Query, NativeQuery, SQL e JPQL aplicados ao projeto, Controller, classe Calendar e @Autowired](https://medium.com/@jmvgdev/entendendo-um-projeto-spring-rest-api-inciantes-parte-2-3b4533d478b7)  
+      [Parte 3 - @GetMapping, @PostMapping, @RequestBody, @PathVariable, @RequestParam, ResponseEntity e HttpStatus.](https://medium.com/@jmvgdev/entendendo-um-projeto-spring-rest-api-inciantes-parte-3-220a698b9e55)
 
 
 

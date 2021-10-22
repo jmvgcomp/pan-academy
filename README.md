@@ -8,7 +8,8 @@ Uma mão na roda para quem quer se especializar e desenvolver seu conhecimento. 
       [Parte 1 - API REST, Verbos HTTP, JSON, Visão geral do POM.XML e dependências do projeto](https://medium.com/@jmvgdev/entendendo-um-projeto-spring-rest-api-inciantes-parte-1-b205d1a6c2d4)  
       [Parte 2 - Classe Principal, @SpringBootApplication, @Id, @GeneratedValue, @JsonFormat, Repository, @Query, NativeQuery, SQL e JPQL aplicados ao projeto, Controller, classe Calendar e @Autowired](https://medium.com/@jmvgdev/entendendo-um-projeto-spring-rest-api-inciantes-parte-2-3b4533d478b7)  
       [Parte 3 - @GetMapping, @PostMapping, @RequestBody, @PathVariable, @RequestParam, ResponseEntity e HttpStatus.](https://medium.com/@jmvgdev/entendendo-um-projeto-spring-rest-api-inciantes-parte-3-220a698b9e55)
-
+      
+  - [21/10 Stack, TreeSet, HashSet](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula10%20-%20stacks%2C%20set/src)
 
 
 

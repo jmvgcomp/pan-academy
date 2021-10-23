@@ -10,6 +10,9 @@ Uma mão na roda para quem quer se especializar e desenvolver seu conhecimento. 
       [Parte 3 - @GetMapping, @PostMapping, @RequestBody, @PathVariable, @RequestParam, ResponseEntity e HttpStatus.](https://medium.com/@jmvgdev/entendendo-um-projeto-spring-rest-api-inciantes-parte-3-220a698b9e55)
       
   - [21/10 Stack, TreeSet, HashSet](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula10%20-%20stacks%2C%20set/src)
+  - [Até 23/10]  
+    - [Herança e Polimorfismo](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula11-heranca-polimorfismo/src)
+    - [Recuperando informação de um microserviço](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula12-microservices)
 
 
 

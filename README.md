@@ -12,7 +12,10 @@ Uma mão na roda para quem quer se especializar e desenvolver seu conhecimento. 
   - [21/10 Stack, TreeSet, HashSet](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula10%20-%20stacks%2C%20set/src)
   - [Até 23/10]  
     - [Herança e Polimorfismo](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula11-heranca-polimorfismo/src)
-    - [Recuperando informação de um microserviço](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula12-microservices)
+    - [Recuperando informação de um microserviço Tabela - Calculo](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula12-microservices)
+  - [Até 26/10]
+    - [Aula 13-14 | Exemplo da diferença entre RestTemplate e OpenFeign para consumir dados](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula13-microservices/ms-appuser)  
+    - [Aula 15 | Implementando Load Balance nos microserviços da aula 12](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula12-microservices)
 
 
 

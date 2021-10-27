@@ -2,8 +2,9 @@ package jmvg.comp.mstabela.resources;
 
 import jmvg.comp.mstabela.entities.Tabela;
 import jmvg.comp.mstabela.repository.TabelaRepository;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,21 +17,30 @@ import java.util.List;
 @RequestMapping("/tabela")
 public class TabelaResource {
 
-    private final TabelaRepository tarefasRepository;
+    private static Logger logger = LoggerFactory.getLogger(TabelaResource.class);
 
-    public TabelaResource(TabelaRepository tarefasRepository) {
-        this.tarefasRepository = tarefasRepository;
+    private Environment env;
+
+    private final TabelaRepository repository;
+
+    public TabelaResource(Environment env, TabelaRepository repository) {
+        this.env = env;
+        this.repository = repository;
     }
 
     @GetMapping
     public ResponseEntity<List<Tabela>> findAll() {
-        return ResponseEntity.ok(tarefasRepository.findAll());
+        List<Tabela> list = repository.findAll();
+        return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Tabela> findById(@PathVariable Long id) {
-        return ResponseEntity.ok(tarefasRepository.findById(id).get());
+        logger.info("PORT: "+env.getProperty("local.server.port"));
+        String serverPort = env.getProperty("local.server.port");
+        System.out.println("Port: "+serverPort);
+        Tabela obj = repository.findById(id).get();
+        return ResponseEntity.ok(obj);
     }
-
-
 }
+

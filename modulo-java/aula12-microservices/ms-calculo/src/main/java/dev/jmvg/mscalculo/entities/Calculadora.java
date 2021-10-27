@@ -1,7 +1,14 @@
 package dev.jmvg.mscalculo.entities;
 
-public class Calculadora {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Calculadora {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String pessoa;
 	private Double precoPorDia;
 	private Integer dias;

@@ -16,6 +16,7 @@ Uma mão na roda para quem quer se especializar e desenvolver seu conhecimento. 
   - [Até 26/10]
     - [Aula 13-14 | Exemplo da diferença entre RestTemplate e OpenFeign para consumir dados](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula13-microservices/ms-appuser)  
     - [Aula 15 | Implementando Load Balance nos microserviços da aula 12](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula12-microservices)
+    - [Aula 16 | Implementação do Eureka](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula16-eureka-springcloud)
 
 
 

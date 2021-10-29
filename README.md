@@ -18,6 +18,9 @@ Uma mão na roda para quem quer se especializar e desenvolver seu conhecimento. 
     - [Aula 15 | Implementando Load Balance nos microserviços da aula 12](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula12-microservices)
   - [28/10]
     - [Aula 16 | Implementação do Eureka](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula16-eureka-springcloud)
+    - [Aula 17 | Implementação do Zuul](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula16-eureka-springcloud/zuul-api-gateway)
+    - [Aula 17 | Trabalhando com Arquivos JSON](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula17-java-json/src/main/java/dev/jmvg/javajson)
+      - [Desafio - ler e escrever um arquivo JSON](https://github.com/jmvgcomp/pan-academy/blob/master/modulo-java/aula17-java-json/src/main/java/dev/jmvg/javajson/Desafio.java)
 
 
 

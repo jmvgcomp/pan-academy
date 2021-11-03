@@ -25,6 +25,8 @@ Uma mão na roda para quem quer se especializar e desenvolver seu conhecimento. 
     - [Aula 18 | Revisão de Spring Cloud OpenFeign](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula18-revisao-feign)
   - [30/10]
     - [Aula 19 | Crud com deploy na AWS - Visão Geral de EC2, EBS e RDS](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula19-api-crud-aws)
+  - [01/11] 
+    - [Aula 20 | Conexões com Java e deploy com AWS e Lambda](https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/aula20-java-connections/awslambda/2AppLambda2)
 
 
 # Estudos e projetos pessoais

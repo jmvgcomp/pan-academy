@@ -15,6 +15,7 @@ public class ExercicioJson {
         JSONExampleObject1();
         JSONExampleObject2();
         JSONExampleObject3();
+        JSONExamplWriter();
 
     }
     private static void JSONExampleArray1() throws JSONException {
@@ -123,14 +124,14 @@ public class ExercicioJson {
     private static void JSONExampleObject2() throws JSONException {
 
         //Também podemos criar um JSONObject diretamente, sem mexer com nenhuma das outras funções.
-
+        //Abaixo é instanciando um novo JSONObject
         JSONObject example = new JSONObject();
 
 
         //Agora adicionamos as chaves e valores de maneira semelhante ao método Stringer
         example.put("key", "value");
 
-        //Como você pode ver, a primeira entrada é a chave e a segunda seria seu valor associado.
+        //A primeira entrada é a chave e a segunda seria seu valor associado.
 
         example.put("key2", 5);
         example.put("key3", -23.45e67);
@@ -191,6 +192,33 @@ public class ExercicioJson {
         System.out.println("Final JSONArray: " + array);
     }
 
+    private static void JSONExamplWriter() {
 
+        //Instancia um StringBuild e passa como dependencia no JSONWriter
+        StringBuilder write = new StringBuilder();
+        JSONWriter jsonWriter = new JSONWriter(write);
+
+        //Comportamento semelhante ao stringBuilder abaixo
+
+        jsonWriter.object();
+
+        jsonWriter.key("trueValue").value(true);
+        jsonWriter.key("falseValue").value(false);
+        jsonWriter.key("nullValue").value(null);
+        jsonWriter.key("stringValue").value("hello world!");
+        jsonWriter.key("complexStringValue").value("h\be\tllo w\u1234orld!");
+        jsonWriter.key("intValue").value(42);
+        jsonWriter.key("doubleValue").value(-23.45e67);
+
+        jsonWriter.endObject();
+
+        //O resultado deve estar no objeto "write"
+
+        System.out.println("JSON: " + write.toString());
+
+        //A diferença é que não obtemos um JSONObject neste.
+
+
+    }
 
 }

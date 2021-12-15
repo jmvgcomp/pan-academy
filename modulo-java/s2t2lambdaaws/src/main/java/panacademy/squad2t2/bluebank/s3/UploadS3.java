@@ -9,21 +9,24 @@ import panacademy.squad2t2.bluebank.model.Transacao;
 
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
+import java.text.NumberFormat;
 import java.time.Instant;
+import java.util.Locale;
 import java.util.UUID;
+
+import static panacademy.squad2t2.bluebank.config.S3Config.*;
 
 public class UploadS3 {
 
-    BasicAWSCredentials awsCredentials = new BasicAWSCredentials("", "");
-    AmazonS3 s3client = AmazonS3ClientBuilder.standard().withRegion("us-east-1").withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
+    BasicAWSCredentials awsCredentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
+    AmazonS3 s3client = AmazonS3ClientBuilder.standard().withRegion(REGION).withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
 
-    public void carregamentoS3(Transacao transacao){
+    public Transacao carregamentoS3(Transacao transacao){
         try{
-            String bucketName = "bucket-pdfs";
             String fileName = "comprovante-"+Instant.now()+".txt";
 
             StringBuilder stringBuilder = new StringBuilder();
-
+            NumberFormat realFormat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
             stringBuilder.append("========COMPROVANTE========\n");
             stringBuilder.append("BLUEBANK\n");
             stringBuilder.append("ID: ").append(transacao.getId()).append("\n");
@@ -34,15 +37,17 @@ public class UploadS3 {
             if(transacao.getContaDestino() != 0){
                 stringBuilder.append("Conta de destino: ").append(transacao.getContaDestino()).append("\n");
             }
-            stringBuilder.append("Valor: ").append(transacao.getValor()).append("\n");
+            stringBuilder.append("Valor: ").append(realFormat.format(transacao.getValor())).append("\n");
             stringBuilder.append("====").append(UUID.randomUUID()).append("====");
 
             ByteArrayInputStream inputStream = new ByteArrayInputStream(stringBuilder.toString().getBytes(StandardCharsets.UTF_8));
-            s3client.putObject(bucketName, fileName, inputStream, new ObjectMetadata());
-
+            s3client.putObject(BUCKET_NAME, fileName, inputStream, new ObjectMetadata());
+            transacao.setUrl(s3client.getUrl(BUCKET_NAME, fileName).toString());
+            return transacao;
         }catch(Exception e){
             e.printStackTrace();
         }
+        return null;
     }
 
 }

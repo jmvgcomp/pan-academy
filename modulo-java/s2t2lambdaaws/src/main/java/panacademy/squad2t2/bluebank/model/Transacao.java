@@ -12,12 +12,13 @@ public class Transacao {
     private Long contaOrigem;
     private Long contaDestino;
     private String clienteOrigem;
+    private String url;
 
 
     public Transacao() {
     }
 
-    public Transacao(Long id, String tipoTransacao, Date dataTransacao, String descricao, Double valor, Long contaOrigem, Long contaDestino) {
+    public Transacao(Long id, String tipoTransacao, Date dataTransacao, String descricao, Double valor, Long contaOrigem, Long contaDestino, String clienteOrigem, String url) {
         this.id = id;
         this.tipoTransacao = tipoTransacao;
         this.dataTransacao = dataTransacao;
@@ -25,6 +26,8 @@ public class Transacao {
         this.valor = valor;
         this.contaOrigem = contaOrigem;
         this.contaDestino = contaDestino;
+        this.clienteOrigem = clienteOrigem;
+        this.url = url;
     }
 
     public Transacao(Long id, String tipoTransacao, Date dataTransacao, String descricao, Double valor, Long contaOrigem, Long contaDestino, String clienteOrigem) {
@@ -115,6 +118,13 @@ public class Transacao {
         this.clienteOrigem = clienteOrigem;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     @Override
     public String toString() {

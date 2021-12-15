@@ -5,18 +5,12 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import panacademy.squad2t2.bluebank.model.Transacao;
 import panacademy.squad2t2.bluebank.s3.UploadS3;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+
+import static panacademy.squad2t2.bluebank.config.DbConfig.*;
 
 
 public class TransacaoHandler implements RequestHandler<Integer, Transacao> {
-
-    private static final String DB_URL = "";
-    private static final String USERNAME = "";
-    private static final String PASSWORD = "";
 
     UploadS3 UploadS3 = new UploadS3();
 
@@ -24,17 +18,16 @@ public class TransacaoHandler implements RequestHandler<Integer, Transacao> {
     public Transacao handleRequest(Integer id, Context context) {
         Transacao transacao = getDetalhesTransacao(id);
         if (transacao != null) {
-            UploadS3.carregamentoS3(transacao);
+            return UploadS3.carregamentoS3(transacao);
         }
-        return transacao;
+        return null;
     }
-
 
     public Transacao getDetalhesTransacao(Integer id) {
         try {
             Connection connection = conexaoMySQL();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM tb_transacao " +
-                    "INNER JOIN tb_cliente ON tb_transacao.conta_id = tb_cliente.conta_id " +
+                    "INNER JOIN tb_usuario ON tb_transacao.conta_id = tb_usuario.conta_id " +
                     "WHERE tb_transacao.id =" + id);
 
             ResultSet resultSet = statement.executeQuery();
@@ -47,7 +40,7 @@ public class TransacaoHandler implements RequestHandler<Integer, Transacao> {
                 transacao.setValor(resultSet.getDouble(5));
                 transacao.setContaOrigem(resultSet.getLong(6));
                 transacao.setContaDestino(resultSet.getLong(7));
-                transacao.setClienteOrigem(resultSet.getString(9) + " " + resultSet.getString(10));
+                transacao.setClienteOrigem(resultSet.getString(10) + " " + resultSet.getString(11));
             }
             return transacao;
         } catch (SQLException e) {
@@ -58,7 +51,7 @@ public class TransacaoHandler implements RequestHandler<Integer, Transacao> {
 
     public static Connection conexaoMySQL() throws SQLException {
         return DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-    }
 
+    }
 
 }
